@@ -3,7 +3,12 @@
 # # --------------------------------------------------------------------
 alias man='LC_ALL=C LANG=C man'
 
-alias ls='ls -AFGC --color=auto'
+if [ `uname` = "Darwin" ]; then
+    alias ls='ls -AFGC'
+else
+    alias ls='ls -AFGC --color=auto'
+fi
+
 alias ll='ls -al'
 alias l='\ls -pC'
 
@@ -30,9 +35,13 @@ alias history='fc -l 1'
 # find sucks right? I mean, you just want to find a goddamn filename
 alias ffind='find -name'
 
-# Etsy stuff
-alias apacherestart="sudo /etc/init.d/httpd restart"
-alias cddw="cd ~/development/Web"
+# vim stuff
 alias clearviews="rm $HOME/.vim/tmp/views/*"
-alias mcflush="sudo /etc/init.d/memcached restart"
-eval $(dbaliases)
+
+# Etsy stuff
+if [[ $HOSTNAME =~ ^.*\.ny4(dev)?\.etsy\.com$ ]]; then
+    alias apacherestart="sudo /etc/init.d/httpd restart"
+    alias cddw="cd ~/development/Web"
+    alias mcflush="sudo /etc/init.d/memcached restart"
+    eval $(dbaliases)
+fi
