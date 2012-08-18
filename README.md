@@ -1,7 +1,7 @@
 zsh
 ======
 
-![What](https://www.dropbox.com/s/ranhh6cen0mumry/2012-08-17%2023.00.05.jpg)
+![What](https://dl.dropbox.com/u/5076882/images/sup.jpg)
 
 WHAT UP? These are my zsh files.
 
