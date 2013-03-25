@@ -37,6 +37,7 @@ alias ffind='find -name'
 
 # vim stuff
 alias clearviews="rm $HOME/.vim/tmp/views/*"
+alias clearswaps="rm $HOME/.vim/tmp/swap/*"
 
 # Etsy stuff
 if [[ $HOSTNAME =~ ^.*\.ny4(dev)?\.etsy\.com$ ]]; then
