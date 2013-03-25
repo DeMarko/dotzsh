@@ -78,4 +78,6 @@ zstyle :compinstall filename "$HOME/.zshrc"
 autoload -Uz compinit
 compinit
 # End of lines added by compinstall
+
+compdef mosh=ssh
 source $HOME/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
