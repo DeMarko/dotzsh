@@ -5,7 +5,7 @@ setopt all_export
 PATH=$HOME/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin
 PATH=$PATH:/usr/local/opt/ruby/bin
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-if [[ $HOSTNAME =~ ^.*\.ny4(dev)?\.etsy\.com$ ]]; then
+if [[ $HOSTNAME =~ ^.*\.ny([45])?(dev)?\.etsy\.com$ ]]; then
     PATH=$PATH:$HOME/development/DevTools/
 fi
 
