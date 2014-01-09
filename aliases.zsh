@@ -6,6 +6,7 @@ alias man='LC_ALL=C LANG=C man'
 if [ `uname` = "Darwin" ]; then
     alias ls='ls -FGC'
     alias back2mymac="echo show Setup:/Network/BackToMyMac | scutil | sed -n 's/.* : *\(.*\).$/\1/p'"
+    alias fixaudio='sudo killall coreaudiod'
 else
     alias ls='ls -FGC --color=auto'
 fi
