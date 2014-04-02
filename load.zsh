@@ -12,9 +12,28 @@ zmodload -ap zsh/mapfile mapfile
 zmodload -i zsh/complist
 
 autoload -Uz vcs_info
-
 source $HOME/.zsh/export.zsh
 source $HOME/.zsh/aliases.zsh
+
+# # --------------------------------------------------------------------
+# # powerline
+# # --------------------------------------------------------------------
+POWERLINE_PATH=$HOME/.zsh/zsh-prompt-powerline/
+fpath+=($POWERLINE_PATH)
+autoload promptinit && promptinit || return 1
+
+zmodload zsh/parameter
+[[ -n $SSH_CONNECTION || $USER == DeMarko ]] && zstyle ':prompt:powerline:ps1' hide-user 1
+zstyle ':vcs_info:*:powerline:*' check-for-changes true
+
+# disambiguate the pathname instead of last three elements (/u/s/z/functions -> share/zsh/functions)
+source $POWERLINE_PATH/hooks/prompt-disambiguate.zsh
+# show signal names instead of exit codes based on a heuristic (130 -> INT)
+source $POWERLINE_PATH/hooks/prompt-exitnames.zsh
+# show commits ahead/behind of tracking branch, and number of stashed commits
+source $POWERLINE_PATH/hooks/vcs_info-githooks.zsh
+
+prompt powerline
 
 # # --------------------------------------------------------------------
 # # bindings
@@ -65,7 +84,7 @@ zstyle ':completion:*:warnings' format 'No matches for: %d'
 
 zstyle ':vcs_info:*' enable git hg svn
 # check-for-changes can be really slow.
-# you should disable it, if you work with large repositories    
+# you should disable it, if you work with large repositories
 zstyle ':vcs_info:*:prompt:*' check-for-changes true
 zstyle ':vcs_info:*:prompt:*' unstagedstr '¹'  # display ¹ if there are unstaged changes
 zstyle ':vcs_info:*:prompt:*' stagedstr '²'    # display ² if there are staged changes
