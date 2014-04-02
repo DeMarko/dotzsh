@@ -18,22 +18,26 @@ source $HOME/.zsh/aliases.zsh
 # # --------------------------------------------------------------------
 # # powerline
 # # --------------------------------------------------------------------
-POWERLINE_PATH=$HOME/.zsh/zsh-prompt-powerline/
-fpath+=($POWERLINE_PATH)
-autoload promptinit && promptinit || return 1
+#POWERLINE_PATH=$HOME/.zsh/zsh-prompt-powerline/
+#fpath+=($POWERLINE_PATH)
+#autoload promptinit && promptinit || return 1
 
-zmodload zsh/parameter
-[[ -n $SSH_CONNECTION || $USER == DeMarko ]] && zstyle ':prompt:powerline:ps1' hide-user 1
-zstyle ':vcs_info:*:powerline:*' check-for-changes true
+#zmodload zsh/parameter
+#[[ -n $SSH_CONNECTION || $USER == DeMarko ]] && zstyle ':prompt:powerline:ps1' hide-user 1
+#zstyle ':vcs_info:*:powerline:*' check-for-changes true
+##zstyle ':prompt:powerline:ps1' sep1-char ''
+##zstyle ':prompt:powerline:ps1' sep2-char ''
+##zstyle ':prompt:powerline:ps1' lock-char ''
+##zstyle ':prompt:powerline:ps1' branch-char ''
 
-# disambiguate the pathname instead of last three elements (/u/s/z/functions -> share/zsh/functions)
-source $POWERLINE_PATH/hooks/prompt-disambiguate.zsh
-# show signal names instead of exit codes based on a heuristic (130 -> INT)
-source $POWERLINE_PATH/hooks/prompt-exitnames.zsh
-# show commits ahead/behind of tracking branch, and number of stashed commits
-source $POWERLINE_PATH/hooks/vcs_info-githooks.zsh
+## disambiguate the pathname instead of last three elements (/u/s/z/functions -> share/zsh/functions)
+#source $POWERLINE_PATH/hooks/prompt-disambiguate.zsh
+## show signal names instead of exit codes based on a heuristic (130 -> INT)
+#source $POWERLINE_PATH/hooks/prompt-exitnames.zsh
+## show commits ahead/behind of tracking branch, and number of stashed commits
+#source $POWERLINE_PATH/hooks/vcs_info-githooks.zsh
 
-prompt powerline
+#prompt powerline
 
 # # --------------------------------------------------------------------
 # # bindings
