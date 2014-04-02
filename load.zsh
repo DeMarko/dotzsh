@@ -81,3 +81,4 @@ compinit
 
 compdef mosh=ssh
 source $HOME/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $HOME/.zsh/zsh-fuzzy-match/fuzzy-match.zsh
