@@ -1,2 +1,2 @@
 $HOME/.zsh/seeyouspacecowboy.sh;
-sleep 3
+sleep 2
