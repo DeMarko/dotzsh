@@ -5,14 +5,14 @@ setopt all_export
 PATH=$HOME/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin
 PATH=$PATH:/usr/local/opt/ruby/bin
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-if [[ $HOSTNAME =~ ^.*\.ny([45])?(dev)?\.etsy\.com$ ]]; then
-    PATH=$PATH:$HOME/development/DevTools/
+if [[ `hostname` =~ ^.*\.ny([45])?(dev)?\.etsy\.com$ ]]; then
+    source /etc/profile.d/dev-etsy.sh
 fi
 
+HOSTNAME="`hostname`"
 HISTFILE=$HOME/.zhistory
 HISTSIZE=10000
 SAVEHIST=10000
-HOSTNAME="`hostname`"
 PAGER='less'
 USERS=(djurado DeMarko dannelj hiroprotagonist) # complete usernames
 EDITOR='vim'

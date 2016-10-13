@@ -50,6 +50,6 @@ if [[ $HOSTNAME =~ ^.*\.ny([45])?(dev)?\.etsy\.com$ ]]; then
     alias clearassets='sudo rm -rf /var/etsy/current/htdocs/assets/dist/*'
     alias clearsmarty='sudo rm -rf /var/etsy/current/tmp/templates/compile/*'
     alias tailerror='tailf /var/log/httpd/php.log | ccze -A -p php'
-    alias consume-dev='sudo -u apache ETSY_ENVIRONMENT=development /var/etsy/current/bin/compass/email_consumer.php -p /tmp/email_consumer.pid -e djurado@etsy.com'
-    eval $(dbaliases)
+    alias tailhhvm='tailf /var/log/hhvm/hhvm.log | ccze -A -p php'
+    eval $($HOME/development/bin/dbaliases)
 fi
