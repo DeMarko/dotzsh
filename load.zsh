@@ -4,6 +4,7 @@
 
 source $HOME/.zsh/opts.zsh
 
+
 # Autoload zsh modules when they are referenced
 zmodload -a zsh/stat stat
 zmodload -a zsh/zpty zpty
@@ -104,4 +105,5 @@ compinit
 
 compdef mosh=ssh
 source $HOME/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source $HOME/.zsh/zsh-fuzzy-match/fuzzy-match.zsh
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

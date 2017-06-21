@@ -17,6 +17,11 @@ PAGER='less'
 USERS=(djurado DeMarko dannelj hiroprotagonist) # complete usernames
 EDITOR='vim'
 
+FZF_DEFAULT_OPS='
+    --color fg:252,bg:233,hl:67,fg+:252,bg+:235,hl+:81
+    --color info:144,prompt:161,spinner:135,pointer:135,marker:118
+'
+
 autoload colors zsh/terminfo
   if [[ "$terminfo[colors]" -ge 8 ]]; then
     colors
@@ -63,7 +68,7 @@ function lprompt {
     local host="${PR_BRIGHT_YELLOW}%m${PR_RESET}"
     local cwd="${PR_BRIGHT_GREEN}%2c${PR_RESET}"
     local inner="${user} ${at} ${host} in ${cwd}"
-    
+
 
     PROMPT="${PR_RESET}${bracket_open}${inner}${bracket_close} %(!.#.$)${PR_RESET} "
 }

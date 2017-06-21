@@ -43,9 +43,10 @@ alias clearswaps="rm $HOME/.vim/tmp/swap/*"
 
 # Etsy stuff
 if [[ $HOSTNAME =~ ^.*\.ny([45])?(dev)?\.etsy\.com$ ]]; then
-    alias apacherestart="sudo /etc/init.d/httpd restart"
     alias cddw="cd ~/development/Etsyweb"
-    alias mcflush="sudo /etc/init.d/memcached restart"
+    alias bounce="sudo service httpd restart"
+    alias mcflush="sudo service memcached restart"
+    alias wtfranz="sudo service franz restart"
     alias hiphop="~/development/Etsyweb/bin/hphp-data/run-hp.sh"
     alias clearassets='sudo rm -rf /var/etsy/current/htdocs/assets/dist/*'
     alias clearsmarty='sudo rm -rf /var/etsy/current/tmp/templates/compile/*'
