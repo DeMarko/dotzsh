@@ -4,6 +4,3 @@
 [submodule "zsh-fuzzy-match"]
 	path = zsh-fuzzy-match
 	url = https://github.com/tarruda/zsh-fuzzy-match.git
-[submodule "zsh-prompt-powerline"]
-	path = zsh-prompt-powerline
-	url = https://github.com/Valodim/zsh-prompt-powerline.git

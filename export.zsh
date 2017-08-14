@@ -2,12 +2,15 @@
 # # environment variables
 # # --------------------------------------------------------------------
 setopt all_export
-PATH=$HOME/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin
+PATH=/usr/local/opt/python/libexec/bin:$PATH
 PATH=$PATH:/usr/local/opt/ruby/bin
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 if [[ `hostname` =~ ^.*\.ny([45])?(dev)?\.etsy\.com$ ]]; then
     source /etc/profile.d/dev-etsy.sh
 fi
+
+WORKON_HOME=$HOME/.virtualenvs
+source /usr/local/bin/virtualenvwrapper_lazy.sh
 
 HOSTNAME="`hostname`"
 HISTFILE=$HOME/.zhistory

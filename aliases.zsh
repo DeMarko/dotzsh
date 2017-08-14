@@ -41,6 +41,8 @@ alias ffind='find -name'
 alias clearviews="rm $HOME/.vim/tmp/views/*"
 alias clearswaps="rm $HOME/.vim/tmp/swap/*"
 
+alias cdsc="cd ~/Projects/sc/"
+
 # Etsy stuff
 if [[ $HOSTNAME =~ ^.*\.ny([45])?(dev)?\.etsy\.com$ ]]; then
     alias cddw="cd ~/development/Etsyweb"
