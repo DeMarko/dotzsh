@@ -88,3 +88,11 @@ compdef mosh=ssh
 source $HOME/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+if [ -e ~/.ksr.rc ]; then source ~/.ksr.rc; fi # Provisioned by ksr laptop script
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+
+# Added by Kickstarter
+test -f $(ksr --profile zsh) && source $(ksr --profile zsh)
+export PATH="/usr/local/opt/mysql@5.6/bin:$PATH"

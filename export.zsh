@@ -2,15 +2,9 @@
 # # environment variables
 # # --------------------------------------------------------------------
 setopt all_export
-PATH=/usr/local/opt/python/libexec/bin:$PATH
-PATH=$PATH:/usr/local/opt/ruby/bin
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-if [[ `hostname` =~ ^.*\.ny([45])?(dev)?\.etsy\.com$ ]]; then
-    source /etc/profile.d/dev-etsy.sh
-fi
-
-WORKON_HOME=$HOME/.virtualenvs
-source /usr/local/bin/virtualenvwrapper_lazy.sh
+PATH=$HOME/.rbenv/shims:$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$HOME/bin:/usr/local/bin:$PATH
+#WORKON_HOME=$HOME/.virtualenvs
+#source /usr/local/bin/virtualenvwrapper_lazy.sh
 
 HOSTNAME="`hostname`"
 HISTFILE=$HOME/.zhistory
@@ -107,5 +101,7 @@ LISTPROMPT=''
 ## SPROMPT - the spelling prompt
 SPROMPT='zsh: correct '%R' to '%r' ? ([Y]es/[N]o/[E]dit/[A]bort) '
 
+LDFLAGS="-L/usr/local/opt/mysql@5.6/lib"
+CPPFLAGS="-I/usr/local/opt/mysql@5.6/include"
 unsetopt all_export
 
