@@ -1,11 +1,13 @@
+path_if_exists $HOME/.rbenv/shims
+path_if_exists $HOME/.cargo/bin
+path_if_exists $HOME/.yarn/bin
+path_if_exists $HOME/.config/yarn/global/node_modules/.bin
+path_if_exists $HOME/bin
+path_if_exists /usr/local/bin
 # # --------------------------------------------------------------------
 # # environment variables
 # # --------------------------------------------------------------------
 setopt all_export
-PATH=$HOME/.rbenv/shims:$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$HOME/bin:/usr/local/bin:$PATH
-#WORKON_HOME=$HOME/.virtualenvs
-#source /usr/local/bin/virtualenvwrapper_lazy.sh
-
 HOSTNAME="`hostname`"
 HISTFILE=$HOME/.zhistory
 HISTSIZE=10000
@@ -101,7 +103,5 @@ LISTPROMPT=''
 ## SPROMPT - the spelling prompt
 SPROMPT='zsh: correct '%R' to '%r' ? ([Y]es/[N]o/[E]dit/[A]bort) '
 
-LDFLAGS="-L/usr/local/opt/mysql@5.6/lib"
-CPPFLAGS="-I/usr/local/opt/mysql@5.6/include"
 unsetopt all_export
 

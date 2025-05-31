@@ -11,10 +11,29 @@ zmodload -a zsh/zpty zpty
 zmodload -a zsh/zprof zprof
 zmodload -ap zsh/mapfile mapfile
 zmodload -i zsh/complist
-
 autoload -Uz vcs_info
+
+source_if_exists() {
+    if [[ -f $1 ]]; then
+        source $1;
+    fi
+}
+
+path_if_exists() {
+    if [[ -d $1 ]]; then
+        export PATH="$1:$PATH"
+    fi
+}
+
 source $HOME/.zsh/export.zsh
 source $HOME/.zsh/aliases.zsh
+source_if_exists $HOME/.zplug/init.zsh
+
+if command -v fzf &> /dev/null; then
+  source <(fzf --zsh)
+else
+  print 'install fzf for fzf-style completion'
+fi
 
 fpath=(
   /usr/local/share/zsh/site-functions
@@ -85,21 +104,26 @@ compinit
 # End of lines added by compinstall
 
 compdef mosh=ssh
-source $HOME/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-if [ -e ~/.ksr.rc ]; then source ~/.ksr.rc; fi # Provisioned by ksr laptop script
+if [[ ! -d $HOME/.zplug ]]; then
+  git clone https://github.com/zplug/zplug $HOME/.zplug
+  source $HOME/.zplug/init.zsh && zplug update --self
+fi
+zplug 'zplug/zplug', hook-build:'zplug --self-manage'
+zplug "lib/completion", from:oh-my-zsh
+zplug "lib/key-bindings", from:oh-my-zsh
+zplug "lib/history", from:oh-my-zsh
+zplug "zsh-users/zsh-history-substring-search", as:plugin
+zplug "zsh-users/zsh-syntax-highlighting", defer:2
 
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+if ! zplug check --verbose; then
+    printf "Install? [y/N]: "
+    if read -q; then
+        echo; zplug install
+    else
+        echo
+    fi
+fi
 
-# Added by Kickstarter
-test -f $(ksr --profile zsh) && source $(ksr --profile zsh)
-export PATH="/usr/local/opt/mysql@5.6/bin:$PATH"
-
-# bun completions
-[ -s "/Users/DeMarko/.bun/_bun" ] && source "/Users/DeMarko/.bun/_bun"
-
-# bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
+zplug load
