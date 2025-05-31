@@ -96,3 +96,10 @@ export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 # Added by Kickstarter
 test -f $(ksr --profile zsh) && source $(ksr --profile zsh)
 export PATH="/usr/local/opt/mysql@5.6/bin:$PATH"
+
+# bun completions
+[ -s "/Users/DeMarko/.bun/_bun" ] && source "/Users/DeMarko/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"

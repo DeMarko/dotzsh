@@ -43,7 +43,7 @@ alias vi='vim'
 alias emacs='vimtutor'
 alias pico='nano'
 alias be='bundle exec'
-
+alias openrandom="find . | perl -e 'srand; rand($.) < 1 && (\$line = \$_) while <>; print \$line;' | xargs -I{} open {}"
 alias rm='nocorrect rm -v'
 alias mv='nocorrect mv -v'
 alias cp='nocorrect cp -v'
